@@ -1,0 +1,5 @@
+start,end,plan,supply_per_kwh,supply_fixed,adjustments_per_kwh,adjustments_fixed,tax_percent,tax_fixed,source,verified
+2026-07-01,2026-08-01,standard,.12,0,.03,0,3.55,0,"SYNTHETIC demonstration inputs, not ConEd supply/adjustment/tax rates",false
+2026-07-01,2026-08-01,tou,.12,0,.03,0,3.55,0,"SYNTHETIC demonstration inputs, not ConEd supply/adjustment/tax rates",false
+2026-08-01,2026-09-01,standard,.12,0,.03,0,3.55,0,"SYNTHETIC demonstration inputs, not ConEd supply/adjustment/tax rates",false
+2026-08-01,2026-09-01,tou,.12,0,.03,0,3.55,0,"SYNTHETIC demonstration inputs, not ConEd supply/adjustment/tax rates",false

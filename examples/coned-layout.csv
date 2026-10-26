@@ -1,0 +1,4 @@
+Synthetic example - not household data
+TYPE,DATE,START TIME,END TIME,USAGE,UNITS,NOTES
+Electric usage,07/01/2026,00:00,00:14,0.30,kWh,
+Electric usage,07/01/2026,00:15,00:29,0.30,kWh,

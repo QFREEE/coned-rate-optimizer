@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:e="http://naesb.org/espi">
+  <title>Synthetic single-meter interval energy</title>
+  <entry><content><e:ReadingType>
+    <e:accumulationBehaviour>4</e:accumulationBehaviour><e:commodity>1</e:commodity>
+    <e:flowDirection>1</e:flowDirection><e:kind>12</e:kind><e:powerOfTenMultiplier>0</e:powerOfTenMultiplier>
+    <e:uom>72</e:uom><e:intervalLength>900</e:intervalLength>
+  </e:ReadingType></content></entry>
+  <entry><link rel="up" href="/MeterReading/synthetic"/><content><e:IntervalBlock>
+    <e:IntervalReading><e:timePeriod><e:duration>900</e:duration><e:start>1782878400</e:start></e:timePeriod><e:value>300</e:value></e:IntervalReading>
+    <e:IntervalReading><e:timePeriod><e:duration>900</e:duration><e:start>1782879300</e:start></e:timePeriod><e:value>100</e:value></e:IntervalReading>
+  </e:IntervalBlock></content></entry>
+</feed>

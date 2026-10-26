@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coned-rate-optimizer"
+version = "0.1.0"
+description = "Local, auditable Con Edison residential tariff comparisons"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = ["defusedxml>=0.7.1,<1", "tzdata>=2026.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+coned-optimize = "coned_optimize.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+coned_optimize = ["tariffs/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

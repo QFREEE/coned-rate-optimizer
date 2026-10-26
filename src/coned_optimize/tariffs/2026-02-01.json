@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "utility": "Consolidated Edison Company of New York, Inc.",
+  "service_class": "SC1",
+  "territory": "Con Edison residential, including Westchester",
+  "effective_start": "2026-02-01",
+  "effective_end": "2026-10-27",
+  "effective_end_reason": "Exclusive research cutoff; not a claimed tariff expiration. No automatic future-rate projection.",
+  "verified_on": "2026-10-26",
+  "timezone": "America/New_York",
+  "currency": "USD",
+  "scope": "base_delivery_only",
+  "source_url": "https://www.coned.com/-/media/files/coned/documents/rates/electric/psc-10/electric-tariff.pdf",
+  "source_index_url": "https://www.coned.com/en/rates-tariffs/rates/electric-rates-schedule/electric-psc-10",
+  "summer_months": [6, 7, 8, 9],
+  "proration": {
+    "source_leaf": "85, General Rule 10.5",
+    "monthly_charge_basis_days": 30,
+    "tier_threshold_basis_days": 30,
+    "effective_or_seasonal_change": "Rates prorated by service-day shares in the billing cycle; SC1 actual customer readings may override seasonal proration.",
+    "termination_exception": "A customer terminating service within 30 days after commencement is billed for 30 days."
+  },
+  "plans": {
+    "standard": {
+      "name": "SC1 Rate I — Standard",
+      "supported": true,
+      "source_leaf": "388 revision 23",
+      "monthly_customer_charge": "21.00",
+      "winter_kwh_rate": "0.16402",
+      "summer_tiers": [
+        {"up_to_kwh_per_30_days": "250", "rate": "0.16402"},
+        {"up_to_kwh_per_30_days": null, "rate": "0.18858"}
+      ],
+      "eligibility": "Ordinary residential SC1 customers not billed under another rate.",
+      "restrictions": []
+    },
+    "tou": {
+      "name": "SC1 Rate III — Voluntary Time-of-Day",
+      "supported": true,
+      "source_leaf": "389.1 revision 19",
+      "monthly_customer_charge": "21.00",
+      "peak_start_hour": 8,
+      "peak_end_hour": 24,
+      "peak_weekdays": [0, 1, 2, 3, 4, 5, 6],
+      "exclude_holidays": false,
+      "summer_peak_kwh_rate": "0.2786",
+      "winter_peak_kwh_rate": "0.1711",
+      "offpeak_kwh_rate": "0.0522",
+      "eligibility": "SC1 customer electing TOD on/after 2014-03-01, subject to meter and account restrictions.",
+      "restrictions": [
+        "Leaving Rate III prevents reenrollment for 18 months.",
+        "Electing as full-service, or switching from retail-access to full-service while on Rate III, requires one year on full-service Rate III."
+      ]
+    },
+    "steady_use": {
+      "name": "SC1 Rate IV — Steady Use",
+      "supported": false,
+      "unsupported_reason": "Verified 60-minute/top-three-daily rule, but utility endpoint integration and rounding conventions not independently verified. No approximate demand calculation is permitted.",
+      "source_leaf": "389.2 revision 8; 389.3 revision 1",
+      "monthly_customer_charge": "31.00",
+      "peak_start_hour": 12,
+      "peak_end_hour": 20,
+      "peak_weekdays": [0, 1, 2, 3, 4],
+      "exclude_holidays": true,
+      "summer_peak_kw_rate": "27.35",
+      "winter_peak_kw_rate": "21.04",
+      "offpeak_kw_rate": "7.17",
+      "demand_window_minutes": 60,
+      "daily_maxima_to_average": 3,
+      "demand_rule": "For each applicable period each day, highest integrated 60-minute demand ending in that day, entirely comprised of intervals ending in same period; billable demand average of three highest daily maxima in billing cycle.",
+      "holidays": ["January 1", "last Monday in May", "July 4", "first Monday in September", "fourth Thursday in November", "December 25"],
+      "holiday_observance": "Listed dates only; no substituted weekday specified.",
+      "eligibility": "Opt-in SC1; AMI and operational communications required.",
+      "restrictions": ["Leaving Rate IV prevents reenrollment for 18 months.", "SmartCharge NY incentives unavailable after enrollment."]
+    },
+    "smart_energy": {
+      "name": "Rider Z Rate I — Smart Energy Plan",
+      "supported": false,
+      "unsupported_reason": "Demand integration endpoint conventions unverified; other pilot-assigned Rider Z variants cannot be assumed eligible.",
+      "source_leaf": "327.1, 327.2, 327.3 revision 12, 327.6",
+      "monthly_customer_charge": "21.00",
+      "peak_start_hour": 12,
+      "peak_end_hour": 20,
+      "peak_weekdays": [0, 1, 2, 3, 4],
+      "exclude_holidays": true,
+      "summer_peak_kw_rate": "30.68",
+      "winter_peak_kw_rate": "23.60",
+      "offpeak_kw_rate": "10.06",
+      "demand_window_minutes": 60,
+      "daily_maxima_to_average": 3,
+      "eligibility": "SC1 with AMI; customers not selected for pilot electing Rider Z assigned Rate I.",
+      "restrictions": ["Leaving Rider Z prevents reenrollment for 18 months.", "Unsolicited opt-in customers do not receive pilot price guarantee."]
+    }
+  },
+  "excluded_components": ["Supply", "Merchant Function Charge", "Monthly Adjustment Clause", "Revenue Decoupling Mechanism", "System Benefits Charge", "Other General Rule 26 adjustments", "General Rule 30 percentage increases", "Sales taxes and exemptions"],
+  "supply_warning": "Con Edison full-service supply varies with plan. Never reuse Standard supply for TOU or Steady Use without plan-specific verification. ESCO contractual pricing may remain unchanged; supplier identity does not change automatically.",
+  "closed_or_special_plans": [
+    {"name": "SC1 Rate II", "reason": "Closed to new applicants since 2014-03-01."},
+    {"name": "SC1 Rate V", "reason": "Standby service subject to General Rule 20, not assumed eligible."}
+  ]
+}
