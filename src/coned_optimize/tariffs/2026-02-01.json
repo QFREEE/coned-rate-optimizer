@@ -55,7 +55,8 @@
     "steady_use": {
       "name": "SC1 Rate IV — Steady Use",
       "supported": false,
-      "unsupported_reason": "Verified 60-minute/top-three-daily rule, but utility endpoint integration and rounding conventions not independently verified. No approximate demand calculation is permitted.",
+      "unsupported_reason": "Rolling60-minute integration updated each15minutes and top-three-daily averaging are verified. Exact midnight daily attribution and peak-boundary endpoint conventions remain unverified; no demand-plan ranking is enabled.",
+      "rolling_measurement_source": "https://www.coned.com/-/media/files/coned/documents/accountandbilling/your-bill/steady-use-rate/rate-assessment.pdf",
       "source_leaf": "389.2 revision 8; 389.3 revision 1",
       "monthly_customer_charge": "31.00",
       "peak_start_hour": 12,
@@ -76,7 +77,8 @@
     "smart_energy": {
       "name": "Rider Z Rate I — Smart Energy Plan",
       "supported": false,
-      "unsupported_reason": "Demand integration endpoint conventions unverified; other pilot-assigned Rider Z variants cannot be assumed eligible.",
+      "unsupported_reason": "Quarter-hour-updated rolling60-minute demand is verified, but midnight daily attribution and peak-boundary endpoint conventions remain unverified; pilot variants cannot be assumed eligible.",
+      "rolling_measurement_source": "https://documents.dps.ny.gov/public/Common/ViewDoc.aspx?DocRefId=%7B2BAB4E9E-0147-4F80-A1CC-A4F1EA7182CA%7D",
       "source_leaf": "327.1, 327.2, 327.3 revision 12, 327.6",
       "monthly_customer_charge": "21.00",
       "peak_start_hour": 12,

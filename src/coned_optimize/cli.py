@@ -11,11 +11,18 @@ from xml.etree.ElementTree import ParseError
 from .engine import Catalog, compare, read_bills, read_components
 from .ingest import load_usage
 from .report import html_report, terminal
+from .bill_audit import audit_bills, audit_html
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Offline Con Edison SC1 historical rate comparison")
     sub = parser.add_subparsers(dest="command", required=True)
+    audit = sub.add_parser("audit-bills", help="Check extracted bill line items without inventing missing charges")
+    audit.add_argument("line_items", type=Path)
+    audit.add_argument("--sales-tax-percent", required=True, help="Sales tax percentage explicitly printed on these bills")
+    audit.add_argument("--electric-only-full-service", action="store_true", help="Confirm electric-only ConEd full-service billing for BPP check")
+    audit.add_argument("--output", type=Path, default=Path("bill-audit.html"))
+    audit.add_argument("--json", dest="json_output", type=Path)
     inspect = sub.add_parser("inspect", help="Inspect coverage and interval quality")
     inspect.add_argument("usage", type=Path)
     for name in ("compare", "report"):
@@ -32,6 +39,19 @@ def main(argv=None):
                          help="Write a self-contained offline HTML report")
     args = parser.parse_args(argv)
     try:
+        if args.command == "audit-bills":
+            result = audit_bills(args.line_items, sales_tax_percent=args.sales_tax_percent,
+                                 electric_only_full_service=args.electric_only_full_service)
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(audit_html(result), encoding="utf-8")
+            if args.json_output:
+                args.json_output.parent.mkdir(parents=True, exist_ok=True)
+                args.json_output.write_text(json.dumps(result, indent=2), encoding="utf-8")
+            for row in result["bills"]:
+                print(row["period"], f'{sum(c["matches"] for c in row["checks"])}/{len(row["checks"])} partial checks match;',
+                      "$"+row["delivery_line_less_base_energy"]+" unallocated delivery difference")
+            print("Full reconciliation remains incomplete. Report:", args.output.resolve())
+            return 0
         usage = load_usage(args.usage)
         if args.command == "inspect":
             print(json.dumps(usage.summary(), indent=2))

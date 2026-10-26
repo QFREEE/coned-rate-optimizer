@@ -20,7 +20,7 @@ coned-optimize = "coned_optimize.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-coned_optimize = ["tariffs/*.json"]
+coned_optimize = ["tariffs/*.json", "reference_rules/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,0 +1,22 @@
+{
+  "verified_on": "2026-10-26",
+  "effective_start": "2026-06-02",
+  "effective_end": "2026-10-27",
+  "scope": "Partial bill audit, not full bill reconstruction",
+  "billing_payment_processing": {
+    "amount_per_bill": "1.80",
+    "applicability": "Electric-only Full Service Bill; not a combined gas/electric account or ESCO consolidated bill",
+    "source_url": "https://www.coned.com/-/media/files/coned/documents/rates/electric/psc-10/electric-tariff.pdf",
+    "source_leaf": "353, General Rule 26.3; leaf85 General Rule10.5"
+  },
+  "gross_receipts": {
+    "source_url": "https://www.coned.com/-/media/files/coned/documents/rates/electric/psc-10/other/increase-rates-charges/grt-202606.pdf",
+    "statement": "33, effective2026-06-02, pages1-2",
+    "village_residential_delivery_percent": "3.3927",
+    "village_residential_commodity_percent": "1.0101",
+    "temporary_delivery_increase_percentage_points": "0.2639",
+    "temporary_bill_end_start": "2026-06-02",
+    "temporary_bill_end_last": "2026-07-30",
+    "applicability": "Monthly residential bills in the1%municipality category; excludes special Buchanan treatment. A numerical match does not establish municipal jurisdiction."
+  }
+}

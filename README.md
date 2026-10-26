@@ -144,6 +144,26 @@ supply or tax rates.
 
 ## Additional components and eligibility
 
+To audit extracted PDF bill line items separately from interval usage:
+
+```console
+coned-optimize audit-bills private/bills/line-items.csv --sales-tax-percent 4 --electric-only-full-service --output private/analysis/reconciliation.html --json private/analysis/reconciliation.json
+```
+
+The line-item CSV columns are `start,end,kwh,basic_service,delivery_energy,system_benefits,delivery_grt,delivery_sales_tax,delivery_total,supply_energy,merchant_function,supply_grt,supply_sales_tax,supply_total,electricity_total`.
+This checks component sums, bill-provided sales tax, conditional village gross-receipts
+percentages including the June–July 2026 temporary surcharge, and (when explicitly
+confirmed) electric-only full-service billing/payment processing. It isolates the
+unallocated difference between billed energy delivery and the base tariff using
+**billed** kWh. A matching partial check is not full reconciliation, proof of tax
+jurisdiction, or verification of an unexplained adjustment. Inputs remain local.
+
+See [follow-up billing and demand research](docs/billing-demand-followup.md).
+Rolling 60-minute demand updated each quarter hour is now source-verified, but
+day attribution at midnight and peak-boundary endpoint conventions remain
+unresolved. Demand costs are still disabled; SBC's separate monthly-maximum
+demand determinant must also be verified before reconstructing full demand bills.
+
 Con Edison full-service **supply differs by rate plan**, despite an unchanged
 supplier. Do not reuse Standard supply for TOU. For an ESCO, verify the actual
 contract before entering an unchanged price for both plans. The application

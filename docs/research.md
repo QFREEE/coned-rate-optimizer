@@ -21,6 +21,13 @@ The [January 2025 historical tariff](https://www.coned.com/-/media/files/coned/d
 
 ## Billing periods, switching, and demand
 
+Follow-up: [billing and demand research](billing-demand-followup.md) resolves the
+rolling-versus-clock-hour question using official Con Edison and PSC sources:
+rolling60-minute demand is updated every15minutes. Exact boundary/day attribution
+and the separate SBC monthly-maximum determinant remain unresolved. The earlier
+uncertainty described below is retained as the initial research record, not the
+current finding. Demand plan costs remain disabled.
+
 General Rule 10.5 (leaf 85) prorates monthly charges by elapsed service days / 30, and kWh tier thresholds by the same factor. Per-kWh prices themselves are not prorated merely because a bill is not 30 days. When a bill crosses a rate change, 10.5.1 specifies day-share proration of rates; the SC1 customer-meter-reading provision on leaf 389.3 explicitly recognizes actual versus prorated seasonal bills. Calendar-month output from interval data should therefore be identified as a historical usage replay; actual bill boundaries are needed to reconcile a utility bill, and cycles crossing seasonal/effective changes require the tariff's proration rules. A customer terminating service within 30 days of commencement is an exception requiring at least 30 days' charges; an MVP without commencement/termination information must disclose that limitation.
 
 Rate III full-service enrollment carries a one-year full-service commitment, also triggered when a retail-access Rate III customer switches to full service. Leaving Rate III or IV blocks reenrollment for 18 months. Rate IV requires operational AMI communications. [Steady Use enrollment guidance](https://www.coned.com/en/accounts-billing/steady-use-rate) confirms the marketing name, excludes SmartCharge NY incentives after enrollment, and describes a conditional heat-pump price guarantee. Do not assume every customer qualifies for a guarantee. Rider Z similarly requires AMI and imposes an 18-month reenrollment wait; unsolicited opt-in customers do not receive its pilot price guarantee.
